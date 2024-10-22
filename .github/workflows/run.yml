@@ -1,28 +1,28 @@
-name: pikpak_auto_invite
-on:
-  push:
-    branches: [ main ]
-    paths:
+姓名：pikpak_auto_invite
+在：
+  推：
+    分支机构: [  main ]
+    路径：
       - '**'
       - '!.gitignore'
       - '!README.md'
-  schedule:
-    # 每天晚六点十分执行一次
-    - cron:  '1 10 * * *'
+  日程：
+    #每天晚上六点十分执行一次
+    -计划任务：   '1 10 * * *'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set Time
-        run: sudo timedatectl set-timezone 'Asia/Shanghai'
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-      - run: pip install -r requirements.txt
-      - name: Run
-        env:
-          INVITE_CODE: ${{secrets.INVITE_CODE}}
-          PUSHPLUS_TOKEN: ${{secrets.PUSHPLUS_TOKEN}}
-        run: python run.py
+职位：
+  建造：
+    运行：ubuntu-latest
+    步骤：
+      -姓名：Set Time
+        运行：sudo timedatectl set-timezone '亚洲/上海'
+      -用途：actions/checkout@v2
+      -用途：actions/setup-python@v2
+        和：
+          python-版本：'3.9'
+      -跑步：pip install -rrequirements.txt
+      -姓名：奔跑
+        环境：
+          INVITE_CODE  : $ {  {秘密.INVITE_CODE }  }
+          PUSHPLUS_TOKEN  : $ {  {秘密.PUSHPLUS_TOKEN }  }
+        运行：python run.py
